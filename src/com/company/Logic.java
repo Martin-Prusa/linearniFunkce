@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Logic {
     public static ArrayList<Funkce> getFunctions() {
-        return Data.readFunctions();
+        ArrayList<Funkce> list = Data.readFunctions();
+        Data.writeCount(list.size());
+        return list;
     }
 }

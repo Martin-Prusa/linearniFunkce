@@ -1,8 +1,6 @@
 package com.company;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -20,9 +18,20 @@ public class Data {
                 functions.add(f);
                 nextLine = br.readLine();
             }
+            br.close();
         } catch (IOException e) {
             System.out.println(e);
         }
         return functions;
+    }
+
+    public static void writeCount(int count) {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("count.txt"));
+            bw.write(count+"");
+            bw.close();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 }
