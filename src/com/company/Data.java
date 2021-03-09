@@ -7,14 +7,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Data {
-    public static ArrayList<String[]> readFunctions() {
-        ArrayList<String[]> functions = new ArrayList<>();
+    public static ArrayList<Funkce> readFunctions() {
+        ArrayList<Funkce> functions = new ArrayList<>();
         try {
             BufferedReader br = new BufferedReader(new FileReader("functions.txt"));
             String nextLine = br.readLine();
             while(nextLine != null) {
                 String[] arr = nextLine.substring(3).split(" "+(char)42+" ");
-                functions.add(new String[]{arr[1].substring(0, arr[1].length()-1), arr[3]});
+                Funkce f = new Funkce();
+                f.a = Integer.parseInt(arr[1].substring(0, arr[1].length()-1));
+                f.b = Integer.parseInt(arr[3]);
+                functions.add(f);
                 nextLine = br.readLine();
             }
         } catch (IOException e) {
