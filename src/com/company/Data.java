@@ -25,13 +25,14 @@ public class Data {
         return functions;
     }
 
-    public static void writeCount(int count) {
+    public static void writeCount(int count, String filename) {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("count.txt"));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
             bw.write(count+"");
             bw.close();
         } catch (IOException e) {
             System.out.println(e);
         }
     }
+
 }
